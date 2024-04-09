@@ -1,6 +1,6 @@
 # <p align="center">DB Spider 🕷️</p>
 
-This project objective is to create a tools for developer helping to quickly creating test data 
+This project objective is to create a tools for assisting developer works on sql database
     
 ## 🛠️ Tech Stack
 - [Gradio](https://www.gradio.app/guides/quickstart) UI
