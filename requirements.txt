@@ -1,0 +1,6 @@
+langchain_community
+langchain-experimental
+langchain
+gradio
+python-dotenv
+pyodbc
