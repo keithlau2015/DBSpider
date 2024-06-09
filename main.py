@@ -22,10 +22,11 @@ agent_executor = create_sql_agent(
     llm=llm,
     toolkit=toolkit,
     verbose=True,
+    handle_parsing_errors=True,
     agent_type=AgentType.ZERO_SHOT_REACT_DESCRIPTION,
 )
 template = """
-You are a sql specialist expert. Given an input question, answer the question with below provided data.
+You are a sql specialist expert. Given an input question, answer the question with below provided schema.
 If necessary you can query information from the database
 Only use following tables:
 {schema}
@@ -54,6 +55,8 @@ with gr.Blocks() as ui:
         return "", history + [[user_msg, None]]
 
     def bot(history):
+        response = agent_executor.run(history[-1][0])
+        print(response)
         bot_msg = chain.invoke({"question": history[-1][0]})
         history[-1][1] = ""
         for character in bot_msg:
