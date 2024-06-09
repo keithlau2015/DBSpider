@@ -1,6 +1,0 @@
-question,output,flag,username,timestamp
-"Create User with admin role, and active all of them","INSERT INTO `user` (username, password, email) VALUES ('adminUser', 'password123', 'admin@example.com');
-INSERT INTO `user_role` (user_id, role_id) VALUES ((SELECT id FROM user ORDER BY id DESC LIMIT 1), (SELECT id FROM `role` WHERE name = 'admin' LIMIT 1));
-
-UPDATE `user_status` SET status_id = (SELECT id FROM `status` WHERE name = 'active' LIMIT 1) WHERE user_id = (SELECT id FROM user ORDER BY id DESC LIMIT 1);
-Answer: The SQL query creates a new user with the username 'adminUser', password 'password123', and email 'admin@example.com'. It then assigns the 'admin' role to this user and sets their status to 'active'.",,,2024-04-04 20:21:00.491745
